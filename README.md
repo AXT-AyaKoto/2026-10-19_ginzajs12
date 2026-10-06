@@ -1,0 +1,18 @@
+# AXT-AyaKoto/2026-10-19_ginzajs12
+
+[Ginza.js #12](https://ginzajs.connpass.com/event/404171/)にて綾坂ことが行ったショートセッション『JavaScriptで競技プログラミングに挑戦する、ということ』のスライドと検証スクリプト群です。
+
+## スライドをもう一度見たい方へ
+
+```sh
+pnpm install
+pnpm exec presenit export presentation # PDF export
+pnpm exec presenit build presentation # HTML export
+```
+
+## License
+
+copyright (c) 2026- Ayasaka-Koto(AyaExpTech)
+
+- `src/presentation/slide.md`を除いて、[MIT License](https://opensource.org/license/mit)とします
+- `src/presentation/slide.md`はライセンスを付与しません
