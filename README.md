@@ -4,6 +4,8 @@
 
 ## スライドをもう一度見たい方へ
 
+[AyaExpTech Presen'it!](https://github.com/AXT-Studio/presen-it)を使っています。
+
 ```sh
 pnpm install
 pnpm exec presenit export presentation # PDF export

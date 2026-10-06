@@ -3,163 +3,204 @@ theme: dark
 hue: 280
 width: 1920
 height: 1080
-fontSize: 32
+fontSize: 30
 break: soft
+footer: "JavaScriptで競技プログラミングに挑戦する、ということ ― Ayasaka-Koto (AyaExpTech) @Ginza.js#12"
+pageTransition:
+    type: fade
+    duration: 0.15
 animation:
-    duration: 0.3 # reveal フェード（秒）
+    duration: 0.15
+rawHTML: true
 ---
 
 <!-- presen-it! slide-break (center-x=true) -->
 
-# はじめに
+# JavaScriptで競技プログラミングに挑戦する、ということ
 
-AyaExpTech Presen'it! のスタート用スライドです。
-
-このファイルを編集しながら、書き方と投影の操作を確認できます。
+2026-10-19 ― Ayasaka-Koto (AyaExpTech) @Ginza.js#12
 
 <!-- presen-it! slide-break -->
 
-## スライドの場所
+## 諸注意
 
-```text
-src/presentation/slide.md
-src/presentation/assets/...
-```
-
-このデッキは `src/presentation/slide.md` にあります。画像などは同じフォルダの `assets/` に置けます。
-
-<!-- スピーカーノート: HTML コメントは投影に出ず、プレゼンターでだけ見えます -->
+- タイトルでJavaScriptって言ってますが、実際私が書いてるのはTypeScriptです
+    - 「Ginza.**js**」なのでJavaScriptって書きました
+    - JavaScriptって言ったりTypeScriptって言ったりしますが、適宜読み替えてください
 
 <!-- presen-it! slide-break -->
 
-## ページ区切り（slide-break）
+## JS/TSは色んな場所で使える
 
-`<!-- presen-it! slide-break -->` で新しいスライドに進みます。
-
-- frontmatter 直後の `slide-break` は 1 枚目のレイアウト指定に使えます（空ページは作りません）
-- 区切り直後の先頭 `##` はページヘッダーになります
-
-<!-- presen-it! slide-break (center-x=true&center-y=true) -->
-
-## 中央揃え
-
-`center-x` / `center-y` で横・縦の配置を変えられます。
-
-```html
-<!-- presen-it! slide-break (center-x=true&center-y=false) -->
-```
+- Webフロントエンド
+    - もともとの役割はこれですよね
+- アプリ開発
+    - デスクトップ: Electron, Tauri, ...
+    - モバイル: React Native, Capacitor, ...
+- バックエンド (Node.jsとかで……)
+    - エッジだけどCoudflare Workersとかもありますよね
 
 <!-- presen-it! slide-break -->
 
-## カラム分割
+## 競技プログラミング
 
-左カラムに説明、右に箇条書きの例です。
+ところで、競技プログラミングというものがあります
+
+> 決められた条件のもとで与えられた問題、課題をプログラミングを用いて解決し、その過程や結果を競うもの ……(後略)
+> (https://info.atcoder.jp/overview/about/competitive)
+
+- 問題が出て、それを解くプログラムを書く速さとか正確さを競う頭脳スポーツ
+- コンテストサイトの1つに「AtCoder」がある
+- 色んな言語が使える
+    - [AtCoderで使用出来る言語とライブラリの一覧 - 2025/10 (img.atcoder.jp)](https://img.atcoder.jp/file/language-update/2025-10/language-list.html)
+- 私は2年ちょっと前にこれを知って「面白そう」と思いました
+
+<!-- presen-it! slide-break -->
+
+## TypeScript × AtCoder ?
+
+- いろんな言語使えるなら「自分のメイン言語」でやりたいですよね
+    - 私はTypeScript(当時はJavaScript)がメイン言語だったので、そうしたいと考えました
+    - 競プロで主流の言語はC++ ≫ Python > Java > Rustって感じだが、どれも書けない or 書きたくない
+- ジャッジシステムとして対応はしていそう
+    - Node.js 22.19.0, Deno 2.4.5, Bun 1.2.21が使える
+    - JavaScriptもTypeScriptも使える<!-- presen-it! reveal (at=1) -->
+- **やろう！**
+    - この判断で私は茨の道を歩むことに……
+    - 今日はその“茨の道を歩んだ歴史”を話します
+
+<!-- presen-it! slide-break (center-y=true) -->
 
 <!-- presen-it! column-break -->
 
-- `column-break` で 2 カラムに分割
-- カラム側の `center-x` / `center-y` が優先されます
+## TypeScript競プロerの受難
 
 <!-- presen-it! slide-break -->
 
-## Markdown の基本
+## そんなにでかくない受難
 
-- **強調**、_斜体_、`inline code`
-- [リンク](https://github.com/AXT-Studio/presen-it)
-- 箇条書きと順序付きリスト
+- 環境構築がめんどくさーい！
+    - 問題ページにエディタ埋め込む拡張機能を自作しました
+        - [AtCoder In-Browser Playground (AIBP)](https://github.com/AXT-Studio/AtCoder-InBrowser-Playground)
+        - 右の画像はAIBPのスクショです
+    - たぶん今ならCLI経由での提出もそんなに難しくないはず
+        - [Nanashi.さんの`cpcli`](https://sevenc7c.com/competitive-programming-cli/)とか
+        - 当面の間はAIBPをDogfoodingするつもり
+- 解説にくっついてるコードがだいたいC++かPython
+    - AIに聞けば丁寧に解説してくれる 良い時代だ
+    - "答え言うなヒントだけ出せ！"っていう指示を用意した
 
-1. まず `slide.md` を書く
-2. `presenit dev` で確認
-3. `build` / `export` で配布
+このへんは、まあ……
 
-- [ ] 未完了タスク（読み取り専用チェックボックス）
-- [x] 完了タスク
+<!-- presen-it! column-break -->
 
-<!-- presen-it! slide-break -->
-
-## コード
-
-```ts
-export function greet(name: string): string {
-    return `Hello, ${name}!`;
-}
-```
-
-フェンスコードは Shiki でハイライトされます。
-
-<!-- presen-it! slide-break -->
-
-## 数式と Mermaid
-
-インライン数式: $E = mc^2$
-
-$$
-\int_0^1 x^2 \, dx = \frac{1}{3}
-$$
-
-```mermaid
-flowchart LR
-    slide.md --> parse
-    parse --> view.html
-    parse --> resume.pdf
-```
-
-<!-- presen-it! slide-break -->
-
-## アラート（GitHub alerts）
-
-> [!NOTE]
-> 補足情報。斜め読みでも伝えたいこと。
-
-> [!TIP]
-> もっと楽に書くためのヒント。
-
-> [!WARNING]
-> 進む前に確認してほしい注意。
-
-<!-- presen-it! slide-break -->
-
-## クリックで順に表示（reveal）
-
-`<!-- presen-it! reveal (at=N) -->` で、同一スライド内をステップ表示できます。`→` / Space で進めてみてください。
-
-この文は最初から見えます。
-
-<!-- presen-it! reveal (at=1) -->
-
-- 1 回クリックで出る <!-- presen-it! reveal (at=2) -->
-- 2 回で出る
-- これも 2 回で出る <!-- presen-it! reveal (at=3) -->
-- 3 回で出る
-
-<!-- presen-it! reveal (at=4) -->
-
-段落の途中でも切れます。ここまでが 4 回目<!-- presen-it! reveal (at=5) -->で、ここはもう 1 回クリックが必要です。
-
-`at` を省略した `<!-- presen-it! reveal -->` は `at=0`（入場時から表示）です。フェード時間は frontmatter の `animation.duration` で変えられます。
-
-<!-- presen-it! slide-break -->
-
-## 投影ビューの操作
-
-| キー                    | 動作                                         |
-| ----------------------- | -------------------------------------------- |
-| `←` `→` / Space / Enter | 前後（同一スライドの reveal → スライド切替） |
-| `O`                     | オーバービュー（グリッド）                   |
-| `P`                     | プレゼンターを別タブで開く                   |
-| `F`                     | フルスクリーン                               |
-| `L`                     | レーザーポインター                           |
-
-左右スライド端（パディング幅）の短押しでも前後に移動できます。左下にマウスを置くと Overview・Presenter・Fullscreen・Laser のツールバーが出ます。Presenter の Next は次の reveal ステップ（無ければ次スライド）をプレビューします。
+![](https://addons.mozilla.org/user-media/previews/full/387/387941.png?modified=1783799252)
 
 <!-- presen-it! slide-break (center-x=true) -->
 
-## 次のステップ
+## 圧倒的くそでか受難
 
-```bash
-pnpm exec presenit dev presentation
-pnpm exec presenit build presentation   # → dist/presentation/view.html
-pnpm exec presenit export presentation  # → dist/presentation/resume.pdf
+<!-- presen-it! reveal (at=1) -->
+
+<b style="font-size:3em">ライブラリの整備不足</b>
+
+<!-- presen-it! slide-break -->
+
+## ライブラリの整備不足、とは……？ (1)
+
+- “AtCoder Library”というAtCoder側でいくつかのアルゴリズムを実装したライブラリがある
+    - C++ではそれが使える
+    - 他のいくつかの言語にも移植されている
+- JS/TS → 移植はある……が、メンテは滞っているし機能も不足している
+    - [ac-library-js](https://github.com/e6nlaq/ac-library-js)というのがあり、AtCoderのジャッジでも使える
+    - 最終更新: 2025年1月
+    - ちゃんとしたドキュメントがない
+    - いくつか「AtCoder Libraryにはあるけど`ac-library-js`にはない」ものがある
+
+<!-- presen-it! slide-break -->
+
+## ライブラリの整備不足、とは……？ (2)
+
+というかそれ以前に、「他の多くの言語にはあるけどJS/TS標準にはない」が結構ある
+
+- Queue, Deque
+    - Arrayでいいじゃんと思った方へ: それだと役不足です あとで話します
+    - (実は`data-structure-typed`が使えるんですが、英語ドキュメントは個人的に読むのがだるくて……)
+- 平衡二分探索木
+    - C++の`std::set`, `std::map`、Javaの`TreeSet`など
+    - Pythonは標準にはないが、代替として[tatyam set](https://qiita.com/tatyam/items/492c70ac4c955c055602)が有名
+- Priority Queue
+    - C++の`std::priority_queue`、Javaの`PriorityQueue`、Pythonの`heapq`など
+- 二分探索
+    - C++の`lower_bound`、Javaの`Arrays.binarySearch`、Pythonの`bisect`など
+
+<!-- presen-it! slide-break -->
+
+## ないなら作ろう
+
+- 使いやすくて、かつ実用的なものを作りたい！
+    - 既存ライブラリのドキュメント整備すればそれで済む話な気もするが……
+- きっと自分の勉強にもなる
+    - ネタバレ: この判断は正しかった
+
+<!-- presen-it! slide-break -->
+
+## AyaExpTech Arcane
+
+コード見たいよ〜！って方のために先に共有
+
+- 読み: /éɪéksték ɑːkéin/
+    - "axt arcane"で調べれば出てくる
+    - `axtech.dev`(私の個人サイト)にリンク載ってる
+
+<!-- presen-it! column-break (center-x=true) -->
+
+![](https://api.qrserver.com/v1/create-qr-code/?size=320x320&qzone=4&data=https://jsr.io/@ayaexptech/arcane)
+
+https://jsr.io/@ayaexptech/arcane
+
+<!-- presen-it! slide-break -->
+
+## 前提知識: 各問題の難易度感
+
+AtCoder Beginner Contestは現在7問(100分)セット
+
+- A: 入出力とifとfor書ければプログラミング初心者でもいける
+- B: 競プロ未経験でもプログラミングある程度やってればいけると思う<!-- presen-it! reveal (at=1) --> **←ここまではいける**<!-- presen-it! reveal -->
+- C: ここからアルゴリズムとかの勉強が必要。プログラミング経験者にとって最初の壁<!-- presen-it! reveal (at=1) --> **←まずここを突破しないといけない**<!-- presen-it! reveal -->
+- D: むずい。今の私はだいたい解ける
+- E: もっとむずい。今の私はたまに解けることがある
+- F: うーーん解法の見当がつかない
+- G: 私が解けるようになる日は来るのでしょうか
+
+<!-- presen-it! slide-break -->
+
+## C問題頻出 ∩ JS/TS標準にない
+
+他にもあるかもしれないが、とくにつらいのはこのへん
+
+- Queue, Deque
+    - 当然あるものとして出題されている ないんですけど！
+    - 説明しやすそうなのでこのあとこれを題材にちょっと喋りますね
+- Priority Queue
+    - 当然あるものとして出題されている ないんですけど！ - コピー
+- 順列全列挙
+    - たまに出てきて散る
+- ソート済み配列上の二分探索(`lower_bound`, `upper_bound`)
+    - 二分探索くらい書けよって話ではあるんけど、ここでライブラリ勢と数分差付くの嫌だよね〜
+- 平衡二分探索木(`std::set`)
+    - 回避できることがほとんどだが、その回避先がQueueだったりして悲しい
+
+<!-- presen-it! slide-break -->
+
+## Queue, Dequeって何？
+
+<!-- presen-it! slide-break -->
+
+## memo: Directives
+
+```md
+<!-- presen-it! slide-break (center-x=true&center-y=false) -->
+<!-- presen-it! column-break (center-x=true&center-y=false) -->
+<!-- presen-it! reveal (at=1) -->
 ```
-
-`presentation` をこのデッキの名前に置き換えて実行してください。内容を編集して、あなたのプレゼンを作りましょう。
