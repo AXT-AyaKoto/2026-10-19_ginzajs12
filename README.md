@@ -16,5 +16,5 @@ pnpm exec presenit build presentation # HTML export
 
 copyright (c) 2026- Ayasaka-Koto(AyaExpTech)
 
-- `src/presentation/slide.md`を除いて、[MIT License](https://opensource.org/license/mit)とします
-- `src/presentation/slide.md`はライセンスを付与しません
+- `src/presentation`内各ファイルを除いて、[MIT License](https://opensource.org/license/mit)とします
+- `src/presentation`内各ファイルはライセンスを付与しません
