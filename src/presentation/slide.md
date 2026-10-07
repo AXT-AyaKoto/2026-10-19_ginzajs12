@@ -30,9 +30,25 @@ rawHTML: true
 
 <!-- presen-it! slide-break -->
 
+## 自己紹介
+
+綾坂こと (Ayasaka-Koto)
+
+- 所属: ZEN大学 2年生
+- AtCoder (Algo) Highest Rate <b style="color:#00C0C0">1238</b><!-- presen-it! reveal (at=1) --> **←今日はこれの話**<!-- presen-it! reveal -->
+- 趣味: 音ゲー, Vtuber(hololive)
+- Website: https://axtech.dev/
+
+<!-- presen-it! column-break (center-x=true) -->
+
+![](https://axtech.dev/icons/Ayasaka-Koto/real.webp)
+
+<!-- presen-it! slide-break -->
+
 ## 競技プログラミング
 
 突然ですが、この世界には「競技プログラミング」というものがあります
+(名前だけ知ってるけどやったことない、みたいな人もいそう)
 
 > 決められた条件のもとで与えられた問題、課題をプログラミングを用いて解決し、その過程や結果を競うもの ……(後略)
 > (https://info.atcoder.jp/overview/about/competitive)
@@ -99,11 +115,13 @@ rawHTML: true
 - “AtCoder Library”というAtCoder側でいくつかのアルゴリズムを実装したライブラリがある
     - C++ではそれが使える
     - 他のいくつかの言語にも移植されている
-- JS/TS → 移植はある……が、メンテは滞っているし機能も不足している
+- JS/TS → 移植はある……が、不安要素もある
     - [ac-library-js](https://github.com/e6nlaq/ac-library-js)というのがあり、AtCoderのジャッジでも使える
-    - 最終更新: 2025年1月
+    - メンテが滞っていそう……？(最終更新: 2025年1月)
     - ちゃんとしたドキュメントがない
+        - DeepWikiのインデックス登録はされているが、2025年10月のルール変更でAI使用はほぼ禁止になったのでNG
     - いくつか「AtCoder Libraryにはあるけど`ac-library-js`にはない」ものがある
+        - `ac-library-js`にあるけど性能(処理速度)に難あり、みたいなものもある
 
 <!-- presen-it! slide-break -->
 
@@ -149,21 +167,7 @@ https://jsr.io/@ayaexptech/arcane
 
 <!-- presen-it! slide-break -->
 
-## 前提知識: 各問題の難易度感
-
-AtCoder Beginner Contestは現在7問(100分)セット
-
-- A: 入出力とifとfor書ければプログラミング初心者でもいける
-- B: 競プロ未経験でもプログラミングある程度やってればいけると思う<!-- presen-it! reveal (at=1) --> **←ここまではいける**<!-- presen-it! reveal -->
-- C: ここからアルゴリズムとかの勉強が必要。プログラミング経験者にとって最初の壁<!-- presen-it! reveal (at=1) --> **←まずここを突破しないといけない**<!-- presen-it! reveal -->
-- D: むずい。今の私はだいたい解ける
-- E: もっとむずい。今の私はたまに解けることがある
-- F: うーーん解法の見当がつかない
-- G: 私が解けるようになる日は来るのでしょうか
-
-<!-- presen-it! slide-break -->
-
-## C問題頻出 ∩ JS/TS標準にない
+## よく出る ∩ JS/TS標準にない
 
 他にもあるが、とくにつらいのはこのへん
 
@@ -174,6 +178,8 @@ AtCoder Beginner Contestは現在7問(100分)セット
     - 当然あるものとして出題されている ないんですけど！ - コピー
 - 順列全列挙
     - たまに出てきて散る
+- Segment Tree (配列の1点更新と区間クエリを高速に処理する)
+- Disjoint Set Union (Union-Find) ("グループの関係"を高速に扱う)
 
 <!-- presen-it! slide-break -->
 
@@ -187,6 +193,8 @@ AtCoder Beginner Contestは現在7問(100分)セット
 | Queue |    ✅️    |      ❌️      |    ❌️    |      ✅️      |
 | Deque |    ✅️    |      ✅️      |    ✅️    |      ✅️      |
 
+DequeはQueueとStackの上位互換なので、Dequeだけ持っとけばOK
+
 <!-- presen-it! column-break (center-x=true) -->
 
 ![](./assets/what-is-queue-deque.webp)
@@ -195,13 +203,13 @@ AtCoder Beginner Contestは現在7問(100分)セット
 
 ## Arrayでよくない？
 
-👉️結論から言うね。それ、**\*\*めっちゃ間違い\*\***。
+👉️結論から言うね。それ、**\*\*鋭い\*\***。
 
 - JSのArrayは「非負整数文字列をキーとして値を持っているObject」
-- それに対して先頭取り出し(`shift`)を実装するには、大まかになにをすればいい？
-    1. `length`を1減らす
-    2. `0`番目を捨てる
-    3. `1`番目以降を1個ずらす **←ここ、めっちゃ時間かかってない？**
+- それに対して先頭取り出し(`shift`)を実装するには、大まかになにをすればいい？<!-- presen-it! reveal (at=1) -->
+    1. `length`を1減らす<!-- presen-it! reveal (at=2) -->
+    2. `0`番目を捨てる<!-- presen-it! reveal (at=3) -->
+    3. `1`番目以降を1個ずらす<!-- presen-it! reveal (at=4) --> **←ここめっちゃ時間かかってない？**<!-- presen-it! reveal (at=5) -->
 - 配列の長さにおおよそ比例する時間がかかる
     - 厳密には上下から配列の長さの定数倍で抑えれるだけだけど、だいたい比例だと思っていい
     - 競プロでは長さ20万の配列に20万回操作しろとか言われる
@@ -221,7 +229,10 @@ AtCoder Beginner Contestは現在7問(100分)セット
     - `List<T> = {head?: Node<T>, tail?: Node<T>}`
 - C++の`std::list`がこれ
 
+<!-- presen-it! reveal (at=1) -->
+
 一回採用したけどちょっと重かったのでやめた
+<!-- presen-it! reveal -->
 
 <!-- presen-it! column-break -->
 
@@ -231,6 +242,8 @@ AtCoder Beginner Contestは現在7問(100分)セット
     1. 先頭側を**逆順で**保持するStack
     2. 末尾側を**正順で**保持するStack
 - 取り出し時に要素がなければ、もう一方から半分移動する
+
+<!-- presen-it! reveal (at=1) -->
 
 こっちを採用！
 
@@ -244,12 +257,66 @@ AtCoder Beginner Contestは現在7問(100分)セット
     - 移す処理をするときに、最大でDequeの長さの半分に概ね比例する時間がかかる(最悪$O(N)$)
 - 償却解析をすると、ならし$O(1)$とは言える
     - 移す処理の発動には取り出し操作が必要で、そこで事前にコストを払ったことにする(均す)
-    - コストを均すと一定以下に収まるので、償却$O(1)$
+    - コストを均すと一定以下に収まるので、償却$O(1)$<!-- presen-it! reveal (at=1) -->
 - 償却$O(1)$になってない状態でしばらく使ってた
     - あっぶね〜〜〜！！
     - 当時は「半分移動」じゃなくて「全部移動」としていた
     - Queueの代替として使ってると償却$O(1)$だったのもあって気づかなかった
     - AIが気づいてくれて、現在は修正済み
+
+<!-- presen-it! slide-break -->
+
+## いっぱい作る
+
+こんな感じの「本質的に速くするための実装」をいっぱいやる
+
+<!-- presen-it! reveal (at=1) -->
+
+- **Priority Queue** → `BinaryHeap`, `BinaryHeapLite`
+- **配列上の二分探索** → `BinarySearch`
+- **二項係数(組み合わせ) mod p** → `Combination`
+- **畳み込み** → `Convolution`
+- Deque → `Deque`
+- グラフ → `DirectedGraph`, `UndirectedGraph`など
+    - **強連結成分分解**: `DirectedGraph.getSCC()`
+- **Disjoint Set Union (Union-Find)** → `DisjointSet`
+- 数学関連 → `ExtendedMath`
+    - 最大公約数、素数判定、**中国剰余定理**、BigInt関連……
+- "区間をSetで管理するやつ" → `IntervalSet`
+- 累積和 → `Iteration.accumulate()`
+- 順列全列挙 → `Iteration.next_permutation()`
+- bit全探索 → `Iteration.next_product()`
+
+<!-- presen-it! column-break -->
+
+(太字: AtCoder Libraryにあるやつ)
+
+- Implicit Treap → `ImplicitTreap`
+- **遅延セグメント木** → `LazySegmentTree`
+- 線形篩(素数列挙) → `LinearSieve`
+- **最大流問題ソルバー** → `MaxFlow`
+- **最小費用流問題ソルバー** → `MinCostFlow`
+- **積極的にmodを取る演算** → `ModOps`
+- ローリングハッシュ → `RollingHash`
+- **セグメント木** → `SegmentTree`
+- スパーステーブル → `SparseTable`
+- 文字列関連 → `StringOperations`
+    - ランレングス圧縮、**Suffix Array**、**LCP Array**、**Z Array**
+- Treap → `StringOperations.getSuffixArray()`
+- **2-SATソルバー** → `TwoSAT`
+- 2次元ベクトル → `Vector2DFloat`, `Vector2DInt`
+
+<!-- presen-it! slide-break -->
+
+## ver2.0.0 公開
+
+そして先日(10月XX日)、ついにver2.0.0を公開！
+
+- ver2.0.0をもって、**AtCoder Libraryが持つライブラリと同等の機能をすべて持つ**ライブラリになった
+    - 最後まで残っていた`Convolution`を実装しました
+    - それ以外のものもいっぱい入ってるけど、準公式ライブラリをカバーしたことは大きなマイルストーンでしょう
+- **JS/TS標準 + AXT Arcaneだけで戦える**ようになったと言っていい
+    - というか私はそれで戦ってる
 
 <!-- presen-it! slide-break -->
 
