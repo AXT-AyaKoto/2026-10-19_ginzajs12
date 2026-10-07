@@ -47,7 +47,7 @@ rawHTML: true
 
 ## 競技プログラミング
 
-突然ですが、この世界には「競技プログラミング」というものがあります
+この世界には「競技プログラミング」というものがあります
 (名前だけ知ってるけどやったことない、みたいな人もいそう)
 
 > 決められた条件のもとで与えられた問題、課題をプログラミングを用いて解決し、その過程や結果を競うもの ……(後略)
@@ -56,20 +56,20 @@ rawHTML: true
 - 問題が出て、それを解くプログラムを書く速さとか正確さを競う頭脳スポーツ
 - コンテストサイトの1つに「AtCoder」がある
 - 色んな言語が使える
-    - [AtCoderで使用出来る言語とライブラリの一覧 - 2025/10 (img.atcoder.jp)](https://img.atcoder.jp/file/language-update/2025-10/language-list.html)
+    - [AtCoderで使用出来る言語とライブラリの一覧 - 2025/10 (img.atcoder.jp)](https://img.atcoder.jp/file/language-update/2025-10/language-list.html)<!-- presen-it! reveal (at=1) -->
 - 私は2年ちょっと前にこれを知って「面白そう」と思いました
 
 <!-- presen-it! slide-break -->
 
 ## TypeScript × AtCoder ?
 
-- いろんな言語使えるなら「自分のメイン言語」でやりたいですよね
+- いろんな言語使えるなら「自分のメイン言語」でやりたいですよね<!-- presen-it! reveal (at=1) -->
     - 私はTypeScript(当時はJavaScript)がメイン言語だったので、そうしたいと考えました
-    - 競プロで主流の言語はC++ ≫ Python > Java > Rustって感じだが、どれも書けない or 書きたくない
+    - 競プロで主流の言語は「C++ ≫ Python > Java > Rust ≫ その他諸々」って感じだが、どれも書けない or 書きたくない<!-- presen-it! reveal (at=2) -->
 - ジャッジシステムとして対応はしていそう
     - Node.js 22.19.0, Deno 2.4.5, Bun 1.2.21が使える
-    - JavaScriptもTypeScriptも使える<!-- presen-it! reveal (at=1) -->
-- **やろう！**
+    - JavaScriptもTypeScriptも使える<!-- presen-it! reveal (at=3) -->
+- 当時の私「**JavaScript(TypeScript)で競プロ、やろう！**」<!-- presen-it! reveal (at=4) -->
     - この判断で私は茨の道を歩むことに……
     - 今日はその“茨の道を歩んだ歴史”を話します
 
@@ -81,7 +81,7 @@ rawHTML: true
 
 <!-- presen-it! slide-break -->
 
-## そんなにでかくない受難
+## 大したことない受難 (駆け足)
 
 - 環境構築がめんどくさーい！
     - 問題ページにエディタ埋め込む拡張機能を自作しました
@@ -93,8 +93,9 @@ rawHTML: true
 - 解説にくっついてるコードがだいたいC++かPython
     - AIに聞けば丁寧に解説してくれる 良い時代だ
     - "答え言うなヒントだけ出せ！"っていう指示を用意した
+        - Custom Instruction、便利〜
 
-このへんは、まあ……
+このへんはまあ、1ヶ月かからず解決できたのでいいんですよ
 
 <!-- presen-it! column-break -->
 
@@ -115,7 +116,7 @@ rawHTML: true
 - “AtCoder Library”というAtCoder側でいくつかのアルゴリズムを実装したライブラリがある
     - C++ではそれが使える
     - 他のいくつかの言語にも移植されている
-- JS/TS → 移植はある……が、不安要素もある
+- AtCoder LibraryのJS/TS移植は存在する……が、不安要素もある
     - [ac-library-js](https://github.com/e6nlaq/ac-library-js)というのがあり、AtCoderのジャッジでも使える
     - メンテが滞っていそう……？(最終更新: 2025年1月)
     - ちゃんとしたドキュメントがない
@@ -183,7 +184,7 @@ https://jsr.io/@ayaexptech/arcane
 
 <!-- presen-it! slide-break -->
 
-## Queue, Dequeって何？ (1)
+## Queue, Dequeって何？
 
 キューって義務教育だと思ってるんですけどそんなことない？
 
@@ -203,13 +204,15 @@ DequeはQueueとStackの上位互換なので、Dequeだけ持っとけばOK
 
 ## Arrayでよくない？
 
-👉️結論から言うね。それ、**\*\*鋭い\*\***。
+👉️結論から言うね。それ、**\*\*めっちゃ本質を突いてる\*\***。ただ、ひとつだけ落とし穴がある。
+
+<!-- presen-it! reveal (at=1) -->
 
 - JSのArrayは「非負整数文字列をキーとして値を持っているObject」
-- それに対して先頭取り出し(`shift`)を実装するには、大まかになにをすればいい？<!-- presen-it! reveal (at=1) -->
-    1. `length`を1減らす<!-- presen-it! reveal (at=2) -->
-    2. `0`番目を捨てる<!-- presen-it! reveal (at=3) -->
-    3. `1`番目以降を1個ずらす<!-- presen-it! reveal (at=4) --> **←ここめっちゃ時間かかってない？**<!-- presen-it! reveal (at=5) -->
+- それに対して先頭取り出し(`shift`)を実装するには、大まかになにをすればいい？<!-- presen-it! reveal (at=2) -->
+    1. `length`を1減らす<!-- presen-it! reveal (at=3) -->
+    2. `0`番目を捨てる<!-- presen-it! reveal (at=4) -->
+    3. `1`番目以降を1個ずらす<!-- presen-it! reveal (at=5) --> **←ここめっちゃ時間かかってない？**<!-- presen-it! reveal (at=6) -->
 - 配列の長さにおおよそ比例する時間がかかる
     - 厳密には上下から配列の長さの定数倍で抑えれるだけだけど、だいたい比例だと思っていい
     - 競プロでは長さ20万の配列に20万回操作しろとか言われる
@@ -249,16 +252,16 @@ DequeはQueueとStackの上位互換なので、Dequeだけ持っとけばOK
 
 <!-- presen-it! slide-break -->
 
-## 余談: Two-stack Dequeは本当に$O(1)$なんですか？
+## 余談: Two-stack Dequeは本当に速いんですか？
 
 時間余ってたら話す
 
-- 最悪$O(1)$ではない
-    - 移す処理をするときに、最大でDequeの長さの半分に概ね比例する時間がかかる(最悪$O(N)$)
-- 償却解析をすると、ならし$O(1)$とは言える
+- 遅くなるタイミングはある(最悪$O(N)$)
+    - 移す処理をするときに、最大でDequeの長さの半分に概ね比例する時間がかかる
+- が、全体としてみたときに最適化されている(償却$O(1)$)
     - 移す処理の発動には取り出し操作が必要で、そこで事前にコストを払ったことにする(均す)
-    - コストを均すと一定以下に収まるので、償却$O(1)$<!-- presen-it! reveal (at=1) -->
-- 償却$O(1)$になってない状態でしばらく使ってた
+    - コストを均すと一定以下に収まる<!-- presen-it! reveal (at=1) -->
+- なお: 償却$O(1)$になってない状態でしばらく使ってた
     - あっぶね〜〜〜！！
     - 当時は「半分移動」じゃなくて「全部移動」としていた
     - Queueの代替として使ってると償却$O(1)$だったのもあって気づかなかった
