@@ -106,7 +106,7 @@ print(sum)
 
 <!-- presen-it! reveal (at=1) -->
 
-![](./assets/practice-a_submits.png)
+![](./assets/practice-a_submits.webp)
 
 <!-- presen-it! reveal (at=2) -->
 
@@ -220,7 +220,7 @@ AtCoderには「コードテスト」というページがあり、ここに直�
 
 <!-- presen-it! reveal -->
 
-![](./assets/atcoder-codetest-screenshot.png)
+![](./assets/atcoder-codetest-screenshot.webp)
 
 <!-- presen-it! slide-break -->
 
@@ -260,7 +260,7 @@ AtCoderには「コードテスト」というページがあり、ここに直�
 
 <!-- presen-it! column-break -->
 
-![](./assets/aibp-image.png)
+![](./assets/aibp-image.webp)
 
 <!-- presen-it! slide-break -->
 
@@ -395,7 +395,7 @@ AtCoderには「コードテスト」というページがあり、ここに直�
 
 <!-- presen-it! reveal (at=1) -->
 
-![](./assets/arcane-image.png)
+![](./assets/arcane-image.webp)
 
 <!-- presen-it! slide-break -->
 
@@ -440,7 +440,7 @@ TS/JS特有の悩みはほとんどなくなってきて、純粋な競プロ力
 
 ## なんですかこれは
 
-![](./assets/scriptc-image.png)
+![](./assets/scriptc-image.webp)
 
 scriptc ― https://scriptc.dev/
 
@@ -448,7 +448,7 @@ scriptc ― https://scriptc.dev/
 
 <!-- presen-it! reveal (at=1) -->
 
-![](./assets/bun-aot-image.png)
+![](./assets/bun-aot-image.webp)
 
 Bun AOT ― https://github.com/oven-sh/bun/pull/45631
 
@@ -513,7 +513,7 @@ Bun AOTの挙動の紹介ツイートを見てたんですけど
 
 <!-- presen-it! reveal (at=1) -->
 
-> ![](./assets/bun-aot-as-post.png)
+> ![](./assets/bun-aot-as-post.webp)
 > <span style="opacity:.6;font-size:.85em">(https://x.com/bunjavascript/status/2108441841498804715)</span>
 
 <!-- presen-it! reveal (at=2) -->
