@@ -34,6 +34,9 @@ rawHTML: true
 - タイトルでJavaScriptって言ってますが、実際私が書いてるのはTypeScriptです
     - 「Ginza.**js**」なのでJavaScriptって書きました
     - JavaScriptって言ったりTypeScriptって言ったりしますが、適宜読み替えてください
+- さっき右足を<ruby>攣<rp>(</rp><rt>つ</rt><rp>)</rp></ruby>りました
+    - 右足引きずったり足を気にしたりし(てい)ますが、それはこのせいです
+    - 攣ったら苦しみます、よろしくお願いいたします
 
 <!-- presen-it! slide-break -->
 
