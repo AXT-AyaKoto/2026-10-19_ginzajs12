@@ -8,6 +8,7 @@
 
 ```sh
 pnpm install
+pnpm exec presenit dev presentation # Dev server
 pnpm exec presenit export presentation # PDF export
 pnpm exec presenit build presentation # HTML export
 ```
