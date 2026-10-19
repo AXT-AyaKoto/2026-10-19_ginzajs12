@@ -1,6 +1,6 @@
-# AXT-AyaKoto/2026-10-19_ginzajs12
+# 『JavaScriptで競技プログラミングをする』
 
-[Ginza.js #12](https://ginzajs.connpass.com/event/404171/)にて綾坂ことが行ったショートセッション『JavaScriptで競技プログラミングに挑戦する、ということ』のスライドと検証スクリプト群です。
+[Ginza.js #12](https://ginzajs.connpass.com/event/404171/)にて綾坂ことが行ったショートセッション『JavaScriptで競技プログラミングをする』のスライドと検証スクリプト群です。
 
 ## スライドをもう一度見たい方へ
 
