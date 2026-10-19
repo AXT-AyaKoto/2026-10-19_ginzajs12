@@ -4,6 +4,12 @@
 
 ## スライドをもう一度見たい方へ
 
+### PDFだけ見れれば良い方へ
+
+右側にGitHub Releasesありますね？そこのAssetsにPDFあるのでどうぞ
+
+### スライド動かしたい方へ
+
 [AyaExpTech Presen'it!](https://github.com/AXT-Studio/presen-it)を使っています。
 
 ```sh
