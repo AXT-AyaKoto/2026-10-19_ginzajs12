@@ -1,5 +1,10 @@
 # 『JavaScriptで競技プログラミングをする』
 
+> [!IMPORTANT]
+> https://github.com/AXT-Studio/Talks ← こっちに移したのでこっちで見てください！！
+
+---
+
 [Ginza.js #12](https://ginzajs.connpass.com/event/404171/)にて綾坂ことが行ったショートセッション『JavaScriptで競技プログラミングをする』のスライドと検証スクリプト群です。
 
 ## スライドをもう一度見たい方へ
